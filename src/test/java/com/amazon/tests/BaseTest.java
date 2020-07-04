@@ -1,8 +1,6 @@
 package com.amazon.tests;
 
-import com.amazon.pages.HomePage;
-import com.amazon.pages.LoginPage;
-import com.amazon.pages.WishlistPage;
+import com.amazon.pages.*;
 import com.amazon.utils.Properties;
 import org.junit.After;
 import org.junit.Before;
@@ -18,8 +16,11 @@ public class BaseTest {
 
     protected HomePage home;
     protected LoginPage login;
-    //protected WishlistPopUp;
+    protected WishListLoginPage wishlistLogin;
+    protected WishlistCreationPopUp popUp;
     protected WishlistPage wishlist;
+    protected MyAccoutPage myaccount;
+
 
     @Before
     public void setUp() {
@@ -30,8 +31,10 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(Properties.SHORT_WAIT, TimeUnit.SECONDS);
         home = new HomePage(driver);
         login = new LoginPage(driver);
+        wishlistLogin = new WishListLoginPage(driver);
         wishlist = new WishlistPage(driver);
-
+        myaccount= new MyAccoutPage(driver);
+        popUp= new WishlistCreationPopUp(driver);
 
     }
 

@@ -1,6 +1,8 @@
 package com.amazon.pages;
 
 import com.amazon.utils.Properties;
+import com.amazon.utils.SeleniumUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -31,10 +33,7 @@ public class HomePage {
         wait.until(ExpectedConditions.visibilityOf(logoAmazon));
     }
     public void navegarAMiCuenta(){
-        wait.until(ExpectedConditions.visibilityOf(hamburguerIcon));
-        hamburguerIcon.click();
-        wait.until(ExpectedConditions.visibilityOf(miCuentaOpcion));
-        miCuentaOpcion.click();
-
+        SeleniumUtils.clickOnElement(hamburguerIcon, wait);
+        SeleniumUtils.clickOnElement(miCuentaOpcion, wait);
     }
 }
