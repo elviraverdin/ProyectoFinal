@@ -11,8 +11,9 @@ public class Properties {
 
     public static final String URL = "https://www.amazon.com.mx";
 
-    public static final String USERNAME = "verherelv@gmail.com";
-    public static final String PASSWORD = "N0paL3s84";
+    //never share passwords or users here.
+    public static final String USERNAME = "";
+    public static final String PASSWORD = "";
 
     /*
     public enum Wait {
