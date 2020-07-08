@@ -11,6 +11,7 @@ public class Properties {
 
     public static final String URL = "https://www.amazon.com.mx";
 
+    //never share passwords or users here.
     public static final String USERNAME = "";
     public static final String PASSWORD = "";
 
