@@ -24,6 +24,7 @@ public class BaseTest {
 
     @Before
     public void setUp() {
+        //work on this one.  the user might be using chromedriver with no .exe extension on unix based systems.
         String driverPath = System.getProperty("user.dir") + "/src/test/java/com/amazon/utils/selenium/webDrivers/chromedriver.exe";
         System.setProperty("webdriver.chrome.driver",driverPath);
 
