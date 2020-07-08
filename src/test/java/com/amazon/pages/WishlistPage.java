@@ -8,6 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import com.amazon.utils.Properties;
 
 import java.util.List;
 
@@ -17,30 +18,35 @@ public class WishlistPage {
 
     public WishlistPage(WebDriver we){
         this.driver = we;
-        wait = new WebDriverWait(driver, Properties.SHORT_WAIT);
+        wait = new WebDriverWait(driver, Properties.MID_WAIT);
         PageFactory.initElements(driver, this);
     }
 
     @FindBy(css="a[href='/gp/registry/wishlist/ref=cm_wl_your_lists']")
      WebElement myWLists; //a[href="/gp/registry/wishlist/ref=cm_wl_your_lists"]
-    @FindBy(css="")
-    WebElement wListName;
-    @FindBy(css=".a-fixed-left-grid-col.a-col-left")
-    List<WebElement> listaWishlist;//.a-fixed-left-grid-col.a-col-left
+    @FindBy(xpath = "//*[@id='WLHUC_viewlist']/span/span")
+    WebElement verWishLBtn;
+    @FindBy(css=".a-fixed-left-grid-col.g-item-sortable-ranking-column.a-col-left")
+    WebElement verificarProducto;
+    @FindBy(css="h3.a-size-base")
+    WebElement nombreProducto;
 
     public void validateWishListPage(){
         SeleniumUtils.visibilityOfElement(myWLists, wait);
         System.out.println("User now sees My WishLists");
     }
-    private String obtenerNombre (WebElement wListName){
-        return wListName.getText(); //Id del objeto donde esta especificamente el nombre
+
+    public void irAWishList(){
+        //Presionar Boton Ir a WishList
+        SeleniumUtils.clickOnElement(verWishLBtn,wait);
+        System.out.println("Ir a WishList");
+
     }
-    public void validateCreatedWishList(String wishlistName){ // Checar
-        for (WebElement wlistname:listaWishlist) {
-            if (this.obtenerNombre(wlistname).contains(wishlistName)) {
-                System.out.println("WishList: "+wlistname+"is listed");
-                break;
-            }
-        }
+    public void validateAddedProduct(){
+        //Validar que el producto este en la lista
+        SeleniumUtils.visibilityOfElement(verificarProducto, wait);
+        SeleniumUtils.visibilityOfElement(nombreProducto,wait);
+        String nombre = nombreProducto.getText();
+        System.out.println("El producto agregado al WishList es: "+ nombre);
     }
 }

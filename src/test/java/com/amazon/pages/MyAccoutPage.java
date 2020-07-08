@@ -1,6 +1,7 @@
 package com.amazon.pages;
 
 import com.amazon.tests.BaseTest;
+import com.amazon.utils.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +15,7 @@ public class MyAccoutPage extends BaseTest {
 
     public MyAccoutPage(WebDriver we){
         this.driver = we;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Properties.MID_WAIT);
         PageFactory.initElements(driver, this);
     }
     @FindBy(css="[href='https://www.amazon.com.mx/wishlist?ref_=ya_d_l_lists']")

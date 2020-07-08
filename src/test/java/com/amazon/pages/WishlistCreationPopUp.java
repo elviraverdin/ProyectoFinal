@@ -1,5 +1,6 @@
 package com.amazon.pages;
 
+import com.amazon.utils.Properties;
 import com.amazon.utils.SeleniumUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -13,7 +14,7 @@ public class WishlistCreationPopUp {
 
     public WishlistCreationPopUp(WebDriver we){
         this.driver = we;
-        wait = new WebDriverWait(driver, 15);
+        wait = new WebDriverWait(driver, Properties.MID_WAIT);
         PageFactory.initElements(driver, this);
     }
 
